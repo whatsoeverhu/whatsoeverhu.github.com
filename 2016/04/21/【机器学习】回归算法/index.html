@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>【机器学习】回归算法 | 健 见</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="健 见">
+    <meta name="author" content="健见">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="健 见" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="/archives" class="animsition-link" title="archive">归档</a></li>
+            <!-- Dropdown Menu -->
+			 
+            <!--<li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>
+            </li>-->
+            
+            
+            
+           <!-- <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>-->
+            
+        </ul>
+        <!-- Lists in Slidebars 
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>-->
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">健 见</a></li>
+                            <li class="nolink"><span>Still Warters Run Deep.</span></li>
+                            
+                            <li><a href="https://github.com/whatsoeverhu" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span>Welcome!</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">菜单</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p></p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-04-21T04:38:13.000Z" itemprop="datePublished">
+          2016-04-21
+      </time>
+    
+</span>
+                <h1>【机器学习】回归算法</h1>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>这篇文章在简单的介绍了一下什么监督学习什么是无监督学习之后，从线性回归问题开始，详细的讲解了什么是梯度下降算法，怎么样用矩阵的形式来求解线性回归算法的参数，并从概率论的角度通过引入高斯分布模型解释了为什么选择最小二乘函数作为线性回归的估计函数，对于不是全部样本能用一条直线拟合的情况下引入了局部回权回归算法，然后介绍了解决二项分类问题的逻辑回归算法，同样通过引入伯努利分布模型对逻辑回归算法给出了概率论的解释，解释了为什么逻辑回归算法采用sigmoid函数作为估计函数，并简单的介绍了感知器算法，讲解了比梯度上升算法收敛速度更快的牛顿算法，最后总结出了广义线性模型，当中介绍到指数分布族，广义线性模型构造的一般假设，给出了相对复杂的多项分类问题的解决算法Softmax回归算法。</p>
+<a id="more"></a>
+<p><strong>引言</strong></p>
+<p>最近开始学习《机器学习》，学习的资料是斯坦福大学的《机器学习》公开课，授课的是Andrew Ng，在网易公开课上有翻译完整的全部视频。由于自己智力水平已经远不如十年前，加上一些先导课程比如微积分、线性代数、统计学和概率论都已经全部还给老师了，每一个视频要反反复复看好多遍，其中遇到不明白推导过程还需要去回顾相应的理论、定理或公式，所以学习的进展相对原先的计划来得缓慢许多。通过两个多星期的学习，总算是把第一部分基于线性回归和逻辑回归的内容学完了。我一直相信掌握知识的最好方法就是与他人分享，因为在与他人分享知识的同时又是对知识正分有效的巩固。所以下面就让我尝试着来说清楚这第一课的内容–机器学习之回归算法。</p>
+<p>本文原则上适合所有对机器学习有兴趣的小伙伴们阅读，文章思路是跟上述公开课的讲义同步的，如果有高等数学、线性代数、统计学、概率论相关知识的读起来会更加轻松一些。</p>
+<p><strong>目录如下：</strong></p>
+<ul>
+<li>监督学习</li>
+<li>线性回归<ul>
+<li>梯度下降算法</li>
+<li>线性回归的矩阵表达式</li>
+<li>线性回归的概率解释</li>
+<li>局部加权回归算法</li>
+</ul>
+</li>
+<li>逻辑回归<ul>
+<li>逻辑回归及其概率解释</li>
+<li>感知器算法</li>
+<li>牛顿算法     </li>
+</ul>
+</li>
+<li>广义线性模型<ul>
+<li>指数分布族</li>
+<li>广义线性模型构造</li>
+<li>Softmax回归</li>
+</ul>
+</li>
+</ul>
+<p><strong>-监督学习</strong></p>
+<p>首先我们先大致的了解一下在机器学习中什么是监督学习什么是无监督学习。监督学习，指得是机器学习过程中使用的训练样本是事先分好类打好标签的，而无监督学习所使用的训练样本事先并没有打好标签，这里所谓的打标签的意思就是训练相本的输出结果是明确的。举个例子就容易懂了，比如我们人类小时候学习的时候，父母告诉你什么是苹果，什么是桔子，什么是狗，什么是猫，之后我们看到类似的物体就能够区分出来它是个什么，这就是监督学习，而人类的无监督学习例子也很多，比如我们会区分动植物(有时候也会有判断错误)，会区分各种各样的建筑物，再比如这个更具体的例子，给出以下几个图片，会自觉的发现其中的相似性。</p>
+<p><img src="1.png" alt="1"></p>
+<p>以上区分监督与无监督学习的方法或许不是最严谨，但是应该是正确且容易理解的，网络上看到好多人用有没有训练样本或者用训练样本的多少来区分是不正确的，需要找关于这两种学习方法学术性的严格定义的朋友可以自行再百度一下，这里就不引用了。接下来在这篇文章里，我们介绍的算法都属于监督学习，也就是说给定的数据都是有预先定义好的标签的，主要用到的是两个例子，一个是房价的预测问题，还有个是垃圾邮件的判断问题，解决前者用的是线性回归算法，相应的解决后者用的是逻辑回归算法。</p>
+<p>在进入我们的学习算法介绍之前，我们先以房价预测为例，把接下来会用到的一些数学符号做一个统一的定义。假设我们收集到的数据是这样的，有房子的面积和价格：</p>
+<p><img src="2.png" alt="2">  </p>
+<p>用点状图表示大致是如下的样子：</p>
+<p><img src="3.png" alt="3"></p>
+<p>那么我们用<img src="4.png" alt="4">表示一个输入，也可以叫作是<strong>特征</strong>，用<img src="5.png" alt="5">表示输出，也叫作<strong>目标值</strong>，那么将  <img src="6.png" alt="6">这样的组合叫作一个<strong>训练样本</strong>，<img src="7.png" alt="7">叫作一个<strong>训练样本集</strong>，我们再用<img src="8.png" alt="8">和<img src="9.png" alt="9">表示输入和输出的域，显然，在我们的例子中，<img src="10.png" alt="10">和<img src="11.png" alt="11">都是实数，我们写作<img src="12.png" alt="12">。因此我们的目标就可以这样描述，给定一个训练集合，我们需要找到一个合适的方法h，使得输入<img src="13.png" alt="13">，输出<img src="14.png" alt="14">，过程如下图：</p>
+<p><img src="15.png" alt="15"></p>
+<p>对于上面这个简单的房价例子，我们寻找的估计函数h是类似下图所示的红色直线，当需要对不在样本中的房子进行价格预测时，就可以如绿色直线标识的一样，由输入的面积x通过函数h来求得价格的值:y。</p>
+<p><img src="16.png" alt="16"></p>
+<p>如果我们的需要输出结果是个连续的值，比如上面这样的房子的价格，那么我们称这样的问题是回归问题，如果我们需要输出的值是离散的几个值，比如输出是判断房子是公寓还是别墅，那么这样的问题我们称为分类问题。下面我们开始从回归问题谈起。</p>
+<p><strong>-线性回归</strong></p>
+<p>让我们把上面的房价预测例子的样本数据再稍微丰富一下，增加一个特征值，比如房子所在的楼层。</p>
+<p><img src="17.png" alt="17"></p>
+<p>对于这样的样本，输入值x就是一个二维向量<img src="18.png" alt="18">，那么<img src="19.png" alt="19">表示的意思是第i个样本的面积，<img src="20.png" alt="20">表示的意思是第i个样本的楼层。假设输入值y是基于输入特征x的线性函数，那么r把我们的估计函数写成如下形式:</p>
+<p><img src="21.png" alt="21"></p>
+<p>其中<img src="22.png" alt="22">称作<strong>参数</strong>(或权值)，用来表示输入域<img src="23.png" alt="23">和输出域<img src="24.png" alt="24">之间存在的具体映射关系，为了将这个公式写成简单的形式，我们令<img src="25.png" alt="25">，于是得到如下函数：</p>
+<p><img src="26.png" alt="26"></p>
+<p>函数最右边的<img src="27.png" alt="27">和<img src="28.png" alt="28">都是向量(一个行向量的转置是个列向量，在数据项数量相同的情况下，一个列向量乘以一个行向量等于两个向量每一项乘积的和)，n是特征的数量(在上面房价预测例子中n=2)，而不是样本的数量。接下来我们需要解决的问题就是寻找合适的<img src="29.png" alt="29">来使得所有样本通过执行函数h(x)之后的输出结果最接近实际值y，用函数表示就是对于第i个样本，我们需要让<img src="30.png" alt="30">尽可能的等于<img src="31.png" alt="31">，在这里我们引入下面这个<strong>评价函数</strong><img src="32.png" alt="32">：</p>
+<p><img src="33.png" alt="33"></p>
+<p>使用如上评价函数的方法我们称之为<strong>最小二乖法</strong>，下面我们就接着来说怎么样选择<img src="34.png" alt="34">可以使得评价函数<img src="35.png" alt="35">最小化。</p>
+<p><strong>–梯度下降算法</strong></p>
+<p>假设我们站在一个山坡上，需要一步一步的走下山，有一个可行的方法就是环顾四周之后向梯度最陡的下方迈出一步，然后重复同样的方法，最终可以走到一个无法再往下走的地点，用同样的方法我们可以求出合适的<img src="36.png" alt="36">使得<img src="37.png" alt="37">最小，具体做法是首先初始化<img src="38.png" alt="38">为任意值，然后重复地修正<img src="39.png" alt="39">，使得最终得出一个最小的<img src="40.png" alt="40">，每一次都使用如下方法!对<a href="41.png">41</a>进行修正：</p>
+<p><img src="42.png" alt="42"></p>
+<p>这样的修正对j从0到n的所有参数都要执行，其中<img src="43.png" alt="43">称为学习速度，是一个手工设置的参数，相当于下山时每一步迈出的远近。为了进一步的计算出每一次的修正的具体数值，我们需要将公式<img src="44.png" alt="44">最右边偏导数求出来，以一个样本为例的求解过程如下：</p>
+<p><img src="45.png" alt="45"></p>
+<p>所以对于只有一个训练样本i的情况下<img src="46.png" alt="46">可以作如下修正，</p>
+<p><img src="47.png" alt="47"></p>
+<p>从公式可以看出，当h(x)计算出的实际值y越接近时，需要做的修正就越少，当h(x)计算结果起实际值y相差越大时修正就越多，这样子重复迭代多次后就可能得到了个h(x)最接近实际值y的<img src="48.png" alt="48">。延伸到有m个训练样本的情况，我们有两种做法可以对<img src="49.png" alt="49">进行修正，一个叫作<strong>批量梯度下降法</strong>，做法是每一次修正的时候都遍历所有的训练样本，写成自然语言是如下算法：</p>
+<p><img src="50.png" alt="50"></p>
+<p>另一种方法叫作<strong>随机梯度下降法</strong>或叫增量梯度下降法，其做法是每遇到一个新的训练样本的时候就对<img src="51.png" alt="51">作一次调整，写成自然语言是类似下面的算法：</p>
+<p><img src="52.png" alt="52"></p>
+<p>批量梯度算法最终可以收敛到一个<img src="53.png" alt="53">使得<img src="54.png" alt="54">最小化，但是由于每次迭代都需要遍历所有的当样本，当数量m很大时，算法的效率会比较低下，而随机梯度下降算法最终得到的<img src="55.png" alt="55">可以使得<img src="56.png" alt="56">接近于最小化，或许会一直在最小<img src="57.png" alt="57">周围徘徊，但是当样本量m很大时，使用随机梯度下降算法是相对实用的。</p>
+<p><strong>–线性回归的矩阵表达式</strong></p>
+<p>梯度下降算法给出了一种最小化<img src="58.png" alt="58">的方法，接下来我们来看另外一种不需要像梯度下降算法这样进行迭代的算法来最小化<img src="59.png" alt="59">。我们直接可以对<img src="60.png" alt="60">求关于<img src="61.png" alt="61">的导函数，然后使这个导函数为0即是<img src="62.png" alt="62">最小。在开始求导之前，我们先将训练样本通过矩阵的形式表示出来。输入的特征值x表示为：</p>
+<p><img src="63.png" alt="63"></p>
+<p>意思是有m个训练样本，每个样本有n个特征(如果考虑<img src="64.png" alt="64">的话是n+1个特征)，矩阵的每一行表示的就是一个训练样本的所有特征值，需要注意<img src="65.png" alt="65">表示的是第一个样本的所有特征的列向量，写出来是如下形式：</p>
+<p><img src="66.png" alt="66"></p>
+<p><img src="67.png" alt="67">转置之后变成行向量，形式是：<img src="68.png" alt="68">。</p>
+<p>输出的目标值y表示为：</p>
+<p><img src="69.png" alt="69"></p>
+<p>之前我们就已经定义过<img src="70.png" alt="70">，那么这里我们可以得出：</p>
+<p><img src="71.png" alt="71"></p>
+<p>对于一个向量z，我们有公式<img src="72.png" alt="72">  ，所以进一步可以得出：</p>
+<p><img src="73.png" alt="73"></p>
+<p>接着就可以对<img src="74.png" alt="74">求导，过程如下：</p>
+<p><img src="75.png" alt="75"></p>
+<p>其中用到的矩阵运算和求导的相关公式有：</p>
+<p>第一步到第二步：</p>
+<p><img src="76.png" alt="76"></p>
+<p>第二步到第三步：</p>
+<p><img src="77.png" alt="77"></p>
+<p>第三步到第四步：</p>
+<p><img src="78.png" alt="78"></p>
+<p><img src="79.png" alt="79"></p>
+<p><img src="80.png" alt="80"></p>
+<p>第四步到第五步：</p>
+<p><img src="81.png" alt="81"></p>
+<p><img src="82.png" alt="82"></p>
+<p><img src="83.png" alt="83"></p>
+<p><img src="84.png" alt="84"></p>
+<p>在第五步代入公式时令:</p>
+<p><img src="85.png" alt="85"></p>
+<p>(I 是单位矩阵)。</p>
+<p>为了使<img src="86.png" alt="86">最小化，我们需要让其导数为0，即 <img src="87.png" alt="87">，则有：</p>
+<p><img src="88.png" alt="88"></p>
+<p>从而求得<img src="89.png" alt="89">：</p>
+<p><img src="90.png" alt="90"></p>
+<p><strong>–线性回归的概率解释</strong></p>
+<p>通过以上的算法演示，我们会好奇为什么在梯度下降算法中的评价函数<img src="91.png" alt="91">和矩阵运算最后求得的评价函数<img src="92.png" alt="92">都是最小二乘的形式呢？这一节就通过一系列概率假设来进行解释。首先让我们假设实际输出值和输出特征值满足以下公式：</p>
+<p><img src="93.png" alt="93"></p>
+<p>其中<img src="94.png" alt="94">称为误差项，公式表示的意思通过我们的估计函数算出来的输出值，和训练样本集合中每一个对应样本的输出值之间存在的一定的差异，以房价预测为例，实际的房价偏离估计值可能是由于其它未列出特征值的原因，比如当天房东的心情，房子是否精装修等等，同时我们假设误差项是满足高斯分布的(也称正态分布)，那么我们用这样的表达式表示”<img src="95.png" alt="95">“，<img src="96.png" alt="96">的概率密度函数为(exp，以自然常数e为底的指数函数)：</p>
+<p><img src="97.png" alt="97"></p>
+<p>这意味着我们同样可以得到：</p>
+<p><img src="98.png" alt="98"></p>
+<p><img src="99.png" alt="99">表示的是<img src="100.png" alt="100">基于给定的<img src="101.png" alt="101">和参数<img src="102.png" alt="102">时的分布。那么我们可以用表达式<img src="103.png" alt="103">表示对于给定的输入矩阵X，和参数<img src="104.png" alt="104">，输出向量<img src="105.png" alt="105">会满足一个怎么样的分布，我们进一步把它定义为一个参数<img src="106.png" alt="106">相关的函数，称之为<strong>似然函数</strong>，其形式如下：</p>
+<p><img src="107.png" alt="107"></p>
+<p>可以将向量展开成每一项的乘积：</p>
+<p><img src="108.png" alt="108"></p>
+<p>那么对于给定的训练集体我们应该如何选择出最适合的参数<img src="109.png" alt="109">呢？根据最大似然率原则，我们只需要求得似然函数的最大值即可，通俗的理解就是选择参数<img src="110.png" alt="110">使得给定的输入可以最大概率的接近输出值。要使<img src="111.png" alt="111">最大化，我们可以相入一个与其相关的严格递增函数<img src="112.png" alt="112">，使得<img src="113.png" alt="113">最大的时候就是<img src="114.png" alt="114">最大的时候，这里我们对<img src="115.png" alt="115">取对数，与是得到如下演算：</p>
+<p><img src="116.png" alt="116"></p>
+<p>因此可以看出<img src="117.png" alt="117">最大化的求解过程就是以下式子最小化的求解过程：</p>
+<p><img src="118.png" alt="118"></p>
+<p>而这个式子正是上文中我们的<img src="119.png" alt="119">，另外可以发现，整个过程中和<img src="120.png" alt="120">具体是多少无关，这个性质在后面推导广义线性模型的时候还会用到。</p>
+<p><strong>–局部加权回归算法</strong></p>
+<p>有些时候一条单一的直线并不能很好的拟合我们的训练集合。如下图所示，最左边的图就没有中间的拟合的好。而有时候得到的函数如果可以覆盖所有的点，那么这样的估计函数只是能表现现有训练样本的特性，而并不一定能够具有普遍意义，如最右边的图。</p>
+<p><img src="121.png" alt="121"></p>
+<p>我们通常把最左边这样的情况称为<strong>欠拟合</strong>，而最右边的这种情况称为<strong>过拟合</strong>。我们再看如下图的样本数据：</p>
+<p><img src="122.png" alt="122"></p>
+<p>如果我们对所有样本运用线性回归算法，或许会得到红色直线所示的估计函数，然而，这并不能很好的拟合我们的训练样本，而如果我们根据一部分训练样本数据进行线性回归，可能可以得到绿色直线所示的估计函数，这样会得到更好的拟合，我们把这样的算法叫作局部加权回归算法。在普通线性回归算法中，我们做的是寻找合适的<img src="123.png" alt="123">，使得如下表达式最小：</p>
+<p><img src="124.png" alt="124"></p>
+<p>而在局部加权回归算法中，我们需要寻找合适的<img src="125.png" alt="125">，使得下面这个表达式最小：</p>
+<p><img src="126.png" alt="126"></p>
+<p>其中<img src="127.png" alt="127">称为权重函数，直观的看当<img src="128.png" alt="128">取值很大时，我们需要更好的选择<img src="129.png" alt="129">才能使得整个式子的结果很小，而当<img src="130.png" alt="130">很小时，估值与实际结果的差异又可以忽略不计，当一般情况下我们选择使用如下函数来表示权重：</p>
+<p><img src="131.png" alt="131"></p>
+<p>可以看出，距离当前x较远的值，权重会相对小一些，对于距离当前x较近的值权重会大一些，所以对于特定的输入值x，在选择<img src="132.png" alt="132">的时候，距离输入样本x越近的值会被赋予更高的权重。其中分母中的<img src="133.png" alt="133">表示的是波长，用来控制距离x远近变化时权重变化的快慢。</p>
+<p>局部加权回归是一个<strong>非参数化的算法</strong>，而普通线性回归是一个<strong>参数化的算法</strong>。参数化的算法表达的意思是一旦我们得到了我们的估计函数h之后，原有的训练样本可以不需要保留了，对于新的输入我们用固定好的参数<img src="134.png" alt="134">就可以计算出输入目标值，而非参数化的算法则需要一直保留训练样本，在给定输入值的时候需要重新计算参数<img src="134.png" alt="134">来得到更适合的估计函数。</p>
+<p><strong>-逻辑回归</strong></p>
+<p>下面我们讨论分类问题，它有点类似回归问题，只不过最终输出的结果y不是一个连续的值，而是系列离散的值，比如二元分类问题中，y就只有0或1两个输出结果，例如垃圾邮件识别的算法就是这样一个分类算法，可以认为正常邮件为1，垃圾邮件为0。当然我们也可以用上面所说的线性回归算法来解决这样的分类问题，但是对于这样的分类问题应用线性回归算法效果很差，而且由于y非0即1，对于h(x)计算结果大于1或小于0就没有任何的意思。因此，我们引入逻辑函数或称为sigmoid函数来作为我们的估计函数，用来替代线性回归中的线性函数，其形式如下：</p>
+<p><img src="135.png" alt="135"></p>
+<p>函数的图形如下图：</p>
+<p><img src="136.png" alt="136"></p>
+<p>当z很大时，函数接近于1，当z很小时函数接近于0。这个函数还有一个很漂亮的特性，就是它的导数可以简单的表示成它自己的形式：</p>
+<p><img src="137.png" alt="137"></p>
+<p>所以在逻辑回归问题中我们的估计函数可以表示为：</p>
+<p><img src="138.png" alt="138"></p>
+<p><strong>–逻辑回归及其概率解释</strong></p>
+<p>那么对于上述给定的的逻辑回归模型，我们要怎么样才能寻找到合适的参数<img src="139.png" alt="139">呢？接着我们来做一些概率假设，然后得到似然函数，最后通过使得似然函数最大化来求得我们最合适的<img src="140.png" alt="140">。</p>
+<p>假设y-1的概率为h(x)，那么由于y非0即1，那么y=0的概率就是1-h(x)，正式表达式如下：</p>
+<p><img src="141.png" alt="141"></p>
+<p>可以简洁的表示成：</p>
+<p><img src="142.png" alt="142"></p>
+<p>于是我们可以进一步得到我们的似然函数：</p>
+<p><img src="143.png" alt="143"></p>
+<p>和上面线性回归的演算一样，我们对这个函数求对数：</p>
+<p><img src="144.png" alt="441"></p>
+<p>所以接下来的问题就是要如何使的函数<img src="145.png" alt="145">最大化，同样的我们可以采用梯度上升算法：</p>
+<p><img src="146.png" alt="146"></p>
+<p>第一步也是针对一个训练样本的情况将最右边的偏导数求解出来：</p>
+<p><img src="147.png" alt="147"></p>
+<p>因此我们就可以通过重复的迭代来求得合适的<img src="148.png" alt="148">：</p>
+<p><img src="149.png" alt="149"></p>
+<p>形式上和线性回归中所用的梯度下降算法的类似，但是这里最大的区别是h(x)已经不是一个线性的函数了。</p>
+<p><strong>–感知器算法</strong></p>
+<p>让我们对上述的逻辑回归算法做一个小修改，将函数g(z)定义为以下非0即1的情况：</p>
+<p><img src="150.png" alt="150"></p>
+<p>然后用同样的方法迭代修正<img src="151.png" alt="151">：</p>
+<p><img src="152.png" alt="152"></p>
+<p>这样就得到了感知器算法。虽然形式上感知器算法看上去和线性回归及逻辑回归很相似，但它和这两个算法有很大的不同，尤其是很难赋予感知器算法有意义的概率解释或给感知器算法寻找一个最大似然函数。</p>
+<p><strong>–牛顿算法</strong></p>
+<p>我们来看另外一个方法可以使得上述逻辑回归中的似然函数<img src="153.png" alt="153">最大化–牛顿算法。牛顿算法的作用是为一个函数寻找到x使得f(x)=0，他的求解过程如下图：</p>
+<p><img src="154.png" alt="154"></p>
+<p>先任选一个x和f(x)值，之后找到这个点的切线，切线和x轴相交的点作为第二次的x值，然后重复之前的动作，直到最后找到的x值会等于或无限接近那个使f(x)=0的值。由于切线的斜率就是这个点的导数，所以我们可以得到如下表达式：</p>
+<p><img src="155.png" alt="155"></p>
+<p>所以对于我们的似然函数<img src="156.png" alt="156">，我们求得其最大化，那么就是要求其导数为0的值，也就是求<img src="157.png" alt="157">，那么套用牛顿算法，我们需要做的就是：</p>
+<p><img src="158.png" alt="158"></p>
+<p>考虑到实际逻辑回归的例子中参数<img src="159.png" alt="159">是一个向量，所以我们的表达式延伸为：</p>
+<p><img src="160.png" alt="160"></p>
+<p>其中H 称为Hessian，它是一个n*n的矩阵：</p>
+<p><img src="161.png" alt="161"></p>
+<p>牛顿算法的收敛速度比梯度上升要快很多，求得合适的参数<img src="162.png" alt="162">时迭代的次数更少，但是牛顿算法每一次迭代的复杂度要大于梯度上升，因为它每次都需要对一个n*n的矩阵求逆，所以当n不是特别在的时候牛顿算法有很好的效率。</p>
+<p><strong>-广义线性模型</strong></p>
+<p>到目前为止我们已经了解了两种例子，一个是线性回归，一个是逻辑回归(可以解决分类问题)。在线性回归中，我们有用到高斯分布<img src="163.png" alt="163">，在逻辑回归中，我们有用到伯努利分布<img src="164.png" alt="164">，其实这两种方式都是一种更普遍的模型的特例，这个模型叫广义线性模型。</p>
+<p><strong>–指数分布族</strong></p>
+<p>让我们从指数分布族开始谈起，直接来看一看指数分布族的表达式：</p>
+<p><img src="165.png" alt="165"></p>
+<p>其中称<img src="166.png" alt="166">为特征参数；<img src="167.png" alt="167">是充分统计函数，而且<img src="168.png" alt="168">经常就等于y；<img src="169.png" alt="169">是对数配分函数，<img src="170.png" alt="170">原则上是个常量；所以选定了函数b,a和T就定义了一个以<img src="171.png" alt="171">为参数的分布族，当我们改变<img src="171.png" alt="171">的时候就能改变分布方式，下面我们展示伯努力分布和高斯分布写成上述形式的表达式。</p>
+<p>伯努利分布：</p>
+<p><img src="172.png" alt="172"></p>
+<p>其中<img src="173.png" alt="173">，可以求得<img src="174.png" alt="174">，于是我们就有如下函数b,a和T:</p>
+<p><img src="175.png" alt="175"></p>
+<p>高斯分布(之前已经提到过实际结果与<img src="176.png" alt="176">无关，所以可以写成如下表达式)：</p>
+<p><img src="177.png" alt="177"></p>
+<p>我们得到如下函数a,b和T:</p>
+<p><img src="178.png" alt="178"></p>
+<p>今后我们还会看到很多分布都是指数分布族的一员。</p>
+<p><strong>–广义线性模型构造</strong></p>
+<p>通常性情况下，对于线性回归和逻辑回归问题，我们根据给定的输入值x来预测出一个变量y的值，为了得到更广义的线性模型，我们可以作如下三点关于y基于给定x值的条件分布假设：</p>
+<p>(1) <img src="179.png" alt="179">，给定x和<img src="180.png" alt="180">，y满足基于参数<img src="181.png" alt="181">的指数分布。</p>
+<p>(2) 给定输入值x，我们的目标是找到一个合适的T(y)函数，在大多数情况下T(y)=y，所以我们就希望我们的估计函数h(x)输出的值尽可能的接近y在给定x时候的值班，表达式为<img src="182.png" alt="182">。</p>
+<p>(3) 参数<img src="183.png" alt="183">和输入值x线性相关<img src="184.png" alt="184">，如果<img src="183.png" alt="183">是向量的话，写作<img src="186.png" alt="186">。</p>
+<p>关于第三点假设，只是选择这样的模型设计，因为我们是要求得一个广义的线性模型。通过以上三点假设，我们可以比较容易的得出一个漂亮的广义线性模型GLMs。下面我们就简单的看一下普通的线性回归和逻辑回归是如何从广义线性模型衍生出来的。</p>
+<p>线性回归中，我们对于给定的输入值x(自变量)得到的目标值y(应变量)是连续的，因而我们采用的是高斯分布模型!<img src="187.png" alt="187">，通过上述的指数分布族的演算过程中，我们发现<img src="188.png" alt="188">，于是我们得到：</p>
+<p><img src="189.png" alt="189"></p>
+<p>逻辑回归中，我们解决的是二元分类问题，所以我们采用的是伯努利分布模型<img src="190.png" alt="190">，同样通过上述的指数分布的演算过程，我们有<img src="191.png" alt="191">，于是我们得到：</p>
+<p><img src="192.png" alt="192"></p>
+<p>这就正好解释了为什么我们在逻辑回归算法中使用sigmoid函数作为估计函数。</p>
+<p><strong>–softmax回归</strong></p>
+<p>最后我们再来学习一个广义线性模型的例子，之前的逻辑分类中，我们的输出目标值y只能是0或1两个选择，例如我们的垃圾邮件识别问题，而现在我们讨论的输出y有1到k种可能，例如我们的邮箱自动分类器，可以根据邮件内容自动将邮件归档到相应的k种分类之下<img src="193.png" alt="193"> ，我们称这样的问题为多项分布问题。我们用<img src="194.png" alt="194">来表示输出结果落在每种类别的概率，实际上这样的表达是有一定的冗余的，因为对于第k个值等于1减去之前所有值之和<img src="195.png" alt="195">，为了将这样的多项分布用指数分布族的形式表达出来，我们定义T(y)是一个含有k-1项的向量<img src="196.png" alt="196">，具体形式如下：</p>
+<p><img src="197.png" alt="197"></p>
+<p>我们再定义如下指示函数：</p>
+<p><img src="198.png" alt="198"></p>
+<p>例如<img src="199.png" alt="199"> ，因此我们就可以将T(y)简写成这样子：<img src="200.png" alt="200">，含义是第i个向量的第i项正好为1。于是我们进行如下演算来得到指数分布族中的a,b和T函数。</p>
+<p><img src="201.png" alt="201"></p>
+<p>其中：</p>
+<p><img src="202.png" alt="202"></p>
+<p>由此我们可以得到：</p>
+<p><img src="203.png" alt="203">，</p>
+<p>进一步求<img src="204.png" alt="204">得对应<img src="205.png" alt="205">的函数：</p>
+<p><img src="206.png" alt="206"></p>
+<p>得到：</p>
+<p><img src="207.png" alt="207"></p>
+<p><img src="208.png" alt="208"></p>
+<p>这个将<img src="209.png" alt="209">映射到<img src="210.png" alt="210">的函数叫作Softmax函数。接着我们将构造一般线性模型的三个假设代入公式，得到：</p>
+<p><img src="211.png" alt="211"></p>
+<p>这个可以用来解决多项分布问题的算法我们称之为Softmax回归，可以发现逻辑回归是其的一个特例。这个算法的估计函数可以写成：</p>
+<p><img src="212.png" alt="212"></p>
+<p>为了求得合适的参数<img src="213.png" alt="213">，我们可以对以下的对数似然函数应用梯度上升算法或牛顿算法求它的最大似然性。</p>
+<p><img src="214.png" alt="214"></p>
+<p><strong>总结</strong></p>
+<p>到此我们机器学习第一课的内容就学习完了，这篇文章在简单的介绍了一下什么监督学习什么是无监督学习之后，从线性回归问题开始，详细的讲解了什么是梯度下降算法，怎么样用矩阵的形式来求解线性回归算法的参数，并从概率论的角度通过引入高斯分布模型解释了为什么选择最小二乘函数作为线性回归的估计函数，对于不是全部样本能用一条直线拟合的情况下引入了局部回权回归算法，然后介绍了解决二项分类问题的逻辑回归算法，同样通过引入伯努利分布模型对逻辑回归算法给出了概率论的解释，解释了为什么逻辑回归算法采用sigmoid函数作为估计函数，并简单的介绍了感知器算法，讲解了比梯度上升算法收敛速度更快的牛顿算法，最后总结出了广义线性模型，当中介绍到指数分布族，广义线性模型构造的一般假设，给出了相对复杂的多项分类问题的解决算法Softmax回归算法。整个过程中需要有一定的高等数学，概率论和线性代数基础才能充分的了解当中的一些公式的推导步骤，在学习这些算法的过程中，我自己也正好回顾了一些这些数学方面的基本知识，今后有空的话也会写一点学习笔记和心得发布出来。而实际应用中，并不一定非要弄清楚算法背后的推导过程，需要知道解决什么样的问题应用什么样的算法，和这些算法如何使用就可以了。</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/04/15/【纯技术】SAP-BW-on-HANA干货/">
+        【纯技术】SAP BW on HANA干货 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- ��˵���ۿ� start -->
+	<div class="ds-thread" data-thread-key="2016/04/21/【机器学习】回归算法/" data-title="【机器学习】回归算法" data-url="http://jianjian001.com/2016/04/21/【机器学习】回归算法/"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"whatsoeverhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- ��˵����JS���� end --></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; <script>new Date().getFullYear()>2010&&document.write(""+new Date().getFullYear());</script>, 健见原创. 版权所有.
+                </p>               
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/whatsoeverhu" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
