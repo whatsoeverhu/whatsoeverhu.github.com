@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<!--[if lte IE 8 ]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<!--
+***************  *      *     *
+      8          *    *       *
+      8          *  *         *
+      8          **           *
+      8          *  *         *
+      8          *    *       *
+      8          *      *     *
+      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+<!--<![endif]-->
+
+<head>
+  <title>粗浅地谈一下「Excel之道」 | 健 见</title>
+  <!-- Meta data -->
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="健 见">
+    <meta name="author" content="健见">
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+
+    <!-- Favicon, (keep icon in root folder) -->
+    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
+
+    <link rel="alternate" href="/atom.xml" title="健 见" type="application/atom+xml">
+    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+	
+    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
+    
+    
+
+    <!-- Custom stylesheet, (add custom styles here, always load last) -->
+    <!-- Load our stylesheet for IE8 -->
+    <!--[if IE 8]>
+    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+    <![endif]-->
+
+    <!-- Google Webfonts (Monserrat 400/700, Open Sans 400/600) -->
+    <link href='//fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='//fonts.useso.com/css?family=Open+Sans:400,600' rel='stylesheet' type='text/css'>
+
+    <!-- Load our fonts individually if IE8+, to avoid faux bold & italic rendering -->
+    <!--[if IE]>
+    <link href='http://fonts.useso.com/css?family=Montserrat:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.useso.com/css?family=Open+Sans:600' rel='stylesheet' type='text/css'>
+    <![endif]-->
+
+    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
+
+    <!-- Load these in the <head> for quicker IE8+ load times -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
+    <![endif]-->
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+
+  
+  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
+</head>
+
+<!--
+<body class="post-template">
+-->
+<body id="index" class="lightnav animsition">
+
+      <!-- ============================ Off-canvas navigation =========================== -->
+
+    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
+        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
+            <img src="/img/close.png" alt="Close"/>
+        </div>
+        <!-- Lists in Slidebars -->
+        <ul class="sb-menu">
+            <li><a href="/" class="animsition-link" title="Home">首页</a></li>
+            <li><a href="https://about.me/hoo" class="animsition-link" title="archive">关于我</a></li>
+	    <li><img src="/img/q.jpg" /></li>
+            <!-- Dropdown Menu -->
+			 
+            <!--<li>
+                <a class="sb-toggle-submenu">Works<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                        <li><a href="/" target="_BLANK" class="animsition-link">AAA</a></li>
+                    
+                        <li><a href="/atom.xml" target="_BLANK" class="animsition-link">BBB</a></li>
+                    
+                </ul>		
+            </li>-->
+            
+            
+            
+           <!-- <li>
+                <a class="sb-toggle-submenu">Links<span class="sb-caret"></span></a>
+                <ul class="sb-submenu">
+                    
+                    <li><a href="http://go.kieran.top/" class="animsition-link">Kieran</a></li>
+                    
+                    <li><a href="http://domain.com/" class="animsition-link">Name</a></li>
+                    
+                </ul>
+            </li>-->
+            
+        </ul>
+        <!-- Lists in Slidebars 
+        <ul class="sb-menu secondary">
+            <li><a href="/about.html" class="animsition-link" title="about">About</a></li>
+            <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li>
+        </ul>-->
+    </div>
+    
+    <!-- ============================ END Off-canvas navigation =========================== -->
+
+    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
+
+    <div id="sb-site">
+        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <div id="navigation" class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <!-- Nav logo -->
+                    <div class="logo">
+                        <a href="/" title="Logo" class="animsition-link">
+                         <img src="/img/logo.png" alt="Logo" width="35px;"/> 
+                        </a>
+                    </div>
+                    <!-- // Nav logo -->
+                    <!-- Info-bar -->
+                    <nav>
+                        <ul class="nav">
+                            <li><a href="/" class="animsition-link">健 见</a></li>
+                            <li class="nolink"><span>Still Waters Run Deep.</span></li>
+                            
+                            <li><a href="https://github.com/whatsoeverhu" title="Github" target="_blank"><i class="icon-github"></i></a></li>
+                            
+                            
+                            
+                            
+                            
+                            <li class="nolink"><span id="busuanzi_container_site_pv"> 访问量:<span id="busuanzi_value_site_pv"></span>次</span></li>
+                        </ul>
+                    </nav>
+                    <!--// Info-bar -->
+                </div>
+                <!-- // .container -->
+                <div class="learnmore sb-toggle-right">菜单</div>
+                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar before"></span>
+                <span class="icon-bar main"></span>
+                <span class="icon-bar after"></span>
+                </button>
+            </div>
+            <!-- // .navbar-inner -->
+        </div>
+
+        <!-- ============================ Header & Logo bar =========================== -->
+
+        <!-- ============================ Hero Image =========================== -->
+
+        <section id="hero" class="scrollme">
+            <div class="container-fluid element-img" style="background: url(/img/bg_img.jpg) no-repeat center center fixed;background-size: cover">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2 vertical-align cover boost text-center">
+                        <div class="center-me animateme" data-when="exit" data-from="0" data-to="0.6" data-opacity="0" data-translatey="100">
+                            <div>
+                            	
+                                <h2></h2>
+                                <p></p>
+				    			
+                                <h2></h2>
+                                <p></p>
+				    			
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- // .col-md-12 -->
+                </div>
+                <div class="herofade beige-dk"></div>
+            </div>
+        </section>
+
+        <!-- Height spacing helper -->
+        <div class="heightblock"></div>
+        <!-- // End height spacing helper -->
+
+        <!-- ============================ END Hero Image =========================== -->
+      
+<section id="intro">
+    <div class="container">
+        <div class="row col-md-offset-2">
+            <div class="col-md-8">
+    			<span class="post-meta">
+      <time datetime="2016-11-29T07:24:15.000Z" itemprop="datePublished">
+          2016-11-29
+      </time>
+    
+</span>
+                <h1>粗浅地谈一下「Excel之道」</h1>
+		<span id="busuanzi_container_page_pv">
+  阅读次数: <span id="busuanzi_value_page_pv"></span>
+</span>
+            </div>
+        </div>
+        <div class="col-md-8 col-md-offset-2">
+      		<p>–引言</p>
+<p>先啰嗦几句为什么会想到写关于Excel的文章。因为通常的理解，关于Excel的基础教程也好高级进阶的技巧也罢，可谓到处都是，根本不需要再多我这一点内容,况且当我们需要用到Excel某个功能的时候只要直接求教度娘就O了，何苦还要专研之？</p>
+<a id="more"></a>
+<p>最近在分享商业分析知识的时候，实例中所使用的数据分析工具八成是Excel，而并不是什么R、Phython、SPSS等听上去高大上的工具，而事实上， Excel能满足我们绝大部分的数据分析需求。的确，会使用哪些公式、如何VLOOKUP、怎么样弄PIVOT这些都不是问题，<strong>真正决定我们是不是用对了Excel的关键，是能不能把Excel用的聪明、用的漂亮，最最起码不能在Excel里犯二。</strong></p>
+<p>所以，看似人人都会用的工具Excel，要用得「聪明漂亮」，还是值得我们好好说道说道这其中的门道的。好比武侠片里的大侠，修炼的绝世武功得有上乘的内功心法配合精妙的外部招式，今天就<strong>先从心法开始说起，我们称此心法为「Excel之道」！</strong></p>
+<p>–正文</p>
+<p>先欣赏一下那些别人家的Excel数据表：</p>
+<p>表一</p>
+<p><img src="1.jpg" alt="1"></p>
+<p>表二</p>
+<p><img src="2.jpg" alt="2"></p>
+<p>表三</p>
+<p><img src="3.jpg" alt="3"></p>
+<p>再对比一下可能是平时你自己正在捣鼓的一些Excel样式：</p>
+<p>表一</p>
+<p><img src="4.png" alt="4"></p>
+<p>表二</p>
+<p><img src="5.png" alt="5"></p>
+<p>哪一种看上去数据更清晰？哪一种看上去格式更美观？哪一种看去心情更舒畅？我想答案是显而易见的。干净漂亮而又优雅简约的Excel表格不仅仅可以提高自己的工作效率，更重要的是能够展现出高水准的专业素养，从而使你在职场中占得一定的先机。</p>
+<p>因此我们总结的Excel之道就是四个字：<strong>「优雅简约」</strong>。</p>
+<p>-所谓的「优雅简约」需要满足以下<strong>五个原则：</strong></p>
+<pre><code>简约性--简约并不意味着会简单，简约可以减少犯错的可能，同时能让不熟悉你所构建的Excel数据模型的的人也能轻松的读懂并理解你想展示的结果和和表达的信息。
+
+可追踪性--尤其是计算以及分析步骤的可追踪，可以让没有参与某个Excel数据模型构建过程的人员也可以很快的弄清楚数据的来龙去脉，而不用绞尽脑汁去探寻和摸索数据之间的关系。
+
+一致性--尽量确保数据的输入输出规范、变量的命名规则、图表显示格式的一致，使数据模型整体上更易于理解。
+
+适应性--公式的设计要合理而具有弹性，可以在避免巨大的公式变更的前提下，快速、高效、准确的根据输入条件和假设的变更而调整数据模型。
+
+易用性--通过简约的数据模型辅以完善的说明文档，使得即便是将数据模型转交给并不专业的人员，也可以通过简单的学习就可以获取到数据模型所要表达的信息，而不是需要一个很陡峭的学习曲线来从头学习一遍Excel。
+</code></pre><p>-那么怎么样才能实现如上所说的Excel「优雅简约」之道呢？我为大家准备了下面<strong>九个要点</strong>：</p>
+<p><img src="6.jpg" alt="6"></p>
+<p><strong>1.时刻准备着面见客户</strong></p>
+<p>人们一般认为，Excel是一个分析和组织数据的工具。然而，实际上Excel更是一个帮助我们沟通和展示我们的发现的媒介和可交付物，当我们创建和交付其他的文件诸如PPT、PDF、Word时，我们总是会考虑很多方方面面的展示细节，以使我们的客户可以准确快速的把握我们所要表达的意思。同样，交付Excel时，也要有这方面的考虑，比如以下点个方面：</p>
+<pre><code>a.别人可以跟上我构建的Excel数据模型的思路吗？当他们打开我的Excel文件时，他们是否可以方便地找到他们想要的信息？
+
+b.Excel文件中是否有清晰的注释消息？大段大段的数据是否有摘要信息？
+
+c.Excel文件中的数据是否有合理的排序？是否有合适的筛选条件？
+
+d.每个工作表的最左上角是否有选定单元格的信息，使用者可以迅速的知道现在所处的位置？
+
+e.Excel文件是否可以被美观的打印？
+</code></pre><p><img src="7.png" alt="7"></p>
+<p><strong>2.坚持结果导向</strong></p>
+<p>在创建工作表之前，仔细思考最终产出的结果是什么，以及怎么样构建数据模型可以达成最终目的是非常有必要的。可以先把思路写成一个「故事板」来帮助实现最终目标。</p>
+<p>在构建「故事板」的时候可以考虑以下要点：</p>
+<pre><code>a.为最终的输出结果构建摘要信息和工作表结构。
+
+b.根据可以想到的逻辑将数据存放到相应的工作表中。
+
+c.决定最终如何展示信息，展示原始数据呢还是有些图表呢？
+
+d.工作表的核心组件有哪些，如何展现并影响最终的结果，比如：输入输出是什么，工作表的描述，整个文件和数据的更新日志等。
+</code></pre><p><img src="8.png" alt="8"></p>
+<p><strong>3.从合适的模版开始</strong></p>
+<p>如果可以从一个现有的模版开始工作相比从空白文件开始效率可以得到很大的提高。</p>
+<p>可以把平时常用的数据模型结构和样式保存成模版。</p>
+<p>发现其他人有好的Excel文档的时候也可以保存到自己的模版库中，方便今后使用，因为「借用」是学好Excel的基本手段。</p>
+<p>另外在保存模板的时候要按照统一的命名规则保存，并可以追溯版本，以便自己未来的使用。</p>
+<p><img src="9.png" alt="9"></p>
+<p><strong>4.格式化数据显示</strong></p>
+<p>对数据的格式化在某种程度上可以说是你的Excel文件最重要的一个方面了，因为这决定了你的Excel甚至是你本人给他人的第一印象。</p>
+<pre><code>a.确保标题和描述在工作表的左上角
+
+b.给每一个标签（工作表）起一个准确的名字以方便信息查找
+
+c.移除网格线以便数据可以清晰的展示
+
+d.将你的工作表保存成可使用的格式：保存时都激活第一个单元格A1，打印预览每一个工作表
+
+e.不要轻易隐藏行或列，而是使用分组的方式，以便使用者清晰的知道还要哪些信息没有显示
+</code></pre><p><img src="10.png" alt="10"></p>
+<p><strong>5.避免使用硬编码</strong></p>
+<p>硬编码会大大降低灵活性和可追溯性并且增加出错的风险，因此条件允许的情况下尽可能使用公式。</p>
+<p>不要更改原始数据，而是引用原始数据，并在此基础上进行增、删、改的操作。</p>
+<p>对于公式计算的数据结果和手工输入的数据采用不同的显示格式进行区分。</p>
+<p>合并单元格的时候必须小心，会导致很难整列或整行的移动数据或者基于此应用公式。</p>
+<p>隐藏数据的时候也要当心，很容易在多选的时候不小心选到隐藏的内容而自己不知道。</p>
+<p><img src="11.png" alt="11"></p>
+<p><strong>6.分解复杂的公式</strong></p>
+<p>保证在你的Excel中所使用的公式尽量简单易读，一来方便他人追溯数据的来龙去脉，另一方面回头自己检查起来也比较方便。看上去使用一个很长的复杂的公式很酷，而且行或列会占用的比较少，但是很容易出现错误并无法被发现，他人理解起来也很困难，并且无法快速的修改和编辑。</p>
+<p>因此，当你知道你想要输出什么，但是又不是很明确如何得到最终结果的时候，可以把计算的步骤一步一步体现在数据模型里。</p>
+<p><img src="12.jpg" alt="12"></p>
+<p><strong>7.认真仔细地检查</strong></p>
+<p>八成Excel里的数据都是存在着错误的，甚至有很多是低级错误，那么怎样可以找出这些错误呢？</p>
+<pre><code>a.使用「Trace Precedents」和「Trace Dependents」功能，可以检查公式的引用是否正确。
+
+b.为引用的外部数据添加注释。
+
+c.打印出数据表，并用计算机进行手工验证。
+
+d.通篇浏览文件内容排除低级错误。
+
+e.厘清所有数据和公式的正负号。
+
+f.使用公式的单步执行功能验证有疑问的公式。
+
+g.记录下文件的修改日志。
+</code></pre><p><img src="13.jpg" alt="13"></p>
+<p><strong>8.善于在线寻找指南和帮助</strong></p>
+<p>互联网着实是我们的好朋友。没有一个人可以完全的熟悉Excel里的每一个公式或功能，但是每当你遇到任何问题的时候，你要相信你肯定不是第一个遇到同样问题的人，网络上必定有一批小伙伴已经遇到过，并且也有了类似问题的解决方法。</p>
+<p>当然在搜索和寻找的时候也有一些技巧：</p>
+<pre><code>a.考虑清楚搜索的关键字，可以试一试不同的Excel术语。
+
+b.把复杂问题分解为几个简单的小问题。
+
+c.把每个小问题的答案组合或拼凑成完整的解决方案。
+
+d.分析公式的语法，理解背后的机理以期实现你要的功能。
+
+e.有时候需要质疑自己是否把问题考虑的太复杂了？
+</code></pre><p><strong>9.使用快捷方式</strong></p>
+<p>介绍十个可以帮你大大提高效率的快捷方式：</p>
+<p><strong>快速求和？用 「 Alt + = 」  。</strong></p>
+<p><img src="14.gif" alt="14"></p>
+<p><strong>快速选定不连续的单元格。</strong></p>
+<p>按下组合键「 Shift+F8 」  ，激活 「  添加选定 」  模式，此时工作表下方的状态栏中会显示出「 添加到所选内容 」字样，以后分别单击不连续的单元格或单元格区域即可选定，而不必按住Ctrl键不放。</p>
+<p><img src="15.gif" alt="15"></p>
+<p><strong>改变数字格式</strong></p>
+<p>Excel的快捷键并不是杂乱无章的，而是遵循了一定的逻辑。比如你想快速改变数字的格式，比如<ctrl+shift+4>就能立刻把数字加上美元符号，因为符号$和数字4共用了同一个键。同理，「 Ctrl+shift+5 」能迅速把数字改成百分比（%）的形式。</ctrl+shift+4></p>
+<p><img src="16.gif" alt="16"></p>
+<p><strong>一键展现所有公式 「CTRL + ` 」</strong></p>
+<p>当你试图检查数据里有没有错误时，<ctrl +="" `="">能够一键让数字背后的公式显示出来。</ctrl></p>
+<p><img src="17.gif" alt="17"></p>
+<p><strong>双击实现快速应用函数</strong></p>
+<p>同一个函数就不用一个一个敲啦。当你设置好了第一行单元格的函数，只需要把光标移动到单元格的右下角，等到它变成一个小加号时，双击，公式就会被应用到这一列剩下的所有单元格里。</p>
+<p><img src="18.gif" alt="18"></p>
+<p><strong>快速增加或删除一列</strong></p>
+<p>当你想快速插入一列时，键入Ctrl + Shift + ‘=’ （Shift + ‘=’其实就是+号啦）就能在你所选中那列的左边插入一列，而Ctrl + ‘-‘（减号）就能删除你所选中的一列。</p>
+<p><img src="19.gif" alt="19"></p>
+<p><strong>快速调整列宽</strong></p>
+<p>想让Excel根据你的文字内容自动调整列宽？你只需要把鼠标移动到列首的右侧，双击一下就大功告成啦~</p>
+<p><img src="21.gif" alt="21"></p>
+<p><strong>双击格式刷</strong></p>
+<p>格式刷当然是一个伟大的工具。不过，你知道只要双击它，就可以把同一个格式 「  刷 」给多个单元格么？</p>
+<p><img src="22.gif" alt="22"></p>
+<p><strong>在不同的工作表之间快速切换</strong></p>
+<p>在不同的工作表之间切换，不代表你的手真的要离开键盘（可以想象如果你学会了这些酷炫狂拽的快捷键，你根本不需要摸鼠标）。 「  Ctrl + PgDn  」 可以切换到右边的工作表，反之， 「Ctrl + PgUp 」可以切换回左边。</p>
+<p><img src="23.gif" alt="23"></p>
+<p><strong>用F4锁定单元格</strong></p>
+<p>在Excel里根据函数填充数据的时候，有时候你希望你引用的单元格下拉时随之变化，也有时候你并不这么想。当你要 「绝对引用 」——也就是锁定单元格的时候，你必须在行列前加$符号。想手动去打这些美元符号？简直是疯了… 其实有一个简单的技巧，就是在你选定单元格之后，按F4键输入美元符号并锁定；如果你继续按F4，则会向后挨个循环：锁定单元格、锁定数字、锁定大写字母、解除锁定。</p>
+<p><img src="24.gif" alt="24"></p>
+<p>最后教大家另外一个快速熟悉和掌握快捷健的法门，就是按下Alt键的时候，会看到菜单上所有的功能都会出现一个字母提示，紧接着再按下相应的字母就能进入到对应的菜单或是打开对应的功能，因此常常使用这样的Alt+字母，很快就能记住自己平时用得最多一些功能的快捷操作方式了。</p>
+<p><img src="25.png" alt="25"></p>
+<p>–尾声</p>
+<p>不知道大伙觉得以上心法是否有助于掌握Excel的使用精髓，希望今后打开您的Excel文件，扑面而来的都是「优雅」的气息。接下来我们马上会出一篇续集，在那里将会着重介绍Excel外部招数的修炼法门：「让你告别愚蠢的Excel操作技巧」、「快速高效修理数据的套路」、「淘气的VLOOKUP」、和「帮你提升逼格的PIVOT」等。敬请关注！</p>
+
+            <div class="clearfix"></div>
+            <hr class="nogutter">
+        </div>
+        <nav class="pagination" role="pagination">
+    
+    
+    <a class="pull-right" href="/2016/11/25/今天我们要撕一撕「偶像崇拜」/">
+        今天我们要撕一撕「偶像崇拜」 →
+    </a>
+    
+</nav>
+
+        <div class="duoshuo"><!-- ��˵���ۿ� start -->
+	<div class="ds-thread" data-thread-key="2016/11/29/粗浅地谈一下「Excel之道」/" data-title="粗浅地谈一下「Excel之道」" data-url="http://jianjian001.com/2016/11/29/粗浅地谈一下「Excel之道」/"></div>
+<!-- ��˵���ۿ� end -->
+<!-- ��˵����JS���� start (һ����ҳֻ������һ��) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"whatsoeverhu"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+<!-- ��˵����JS���� end --></div>
+    </div>
+</section>
+
+
+      
+<!-- ============================ Footer =========================== -->
+
+<footer>
+    <div class="container">
+            <div class="copy">
+                <p>
+                    &copy; <script>new Date().getFullYear()>2010&&document.write(""+new Date().getFullYear());</script>, 健见原创. 版权所有.
+                </p>               
+            </div>
+            <div class="social">
+                <ul>
+                    
+                    <li><a href="https://github.com/whatsoeverhu" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
+                    
+                    
+                    
+                    
+                    
+                </ul>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+	<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+</footer>
+
+<!-- ============================ END Footer =========================== -->
+      <!-- Load our scripts -->
+        
+<!-- Resizable 'on-demand' full-height hero -->
+<script type="text/javascript">
+    
+    var resizeHero = function () {
+        var hero = $(".cover,.heightblock"),
+            window1 = $(window);
+        hero.css({
+            "height": window1.height()
+        });
+    };
+    
+    resizeHero();
+    
+    $(window).resize(function () {
+        resizeHero();
+    });
+</script>
+<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
+<script src="/js/jquery.flexslider-min.js"></script><!-- Flexslider plugin -->
+<script src="/js/scripts.js"></script><!-- Theme scripts -->
+
+<!-- Initiate flexslider plugin -->
+<script type="text/javascript">
+    $(document).ready(function($) {
+      $('.flexslider').flexslider({
+        animation: "fade",
+        prevText: "",
+        nextText: "",
+        directionNav: true
+      });
+    });
+</script>
+
+</body>
+</html>
